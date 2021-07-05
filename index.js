@@ -6,12 +6,14 @@ function renderCardColumnOne(cards) {
   const cardImage = document.createElement('img')
   const btnOne = document.createElement('button')
   //const removeBtnOne = document.createElement('button')
+ 
 
   h4Name.textContent = `Name:  ${cards.name}`
   h4Type.textContent = `Type: ${cards.type}`
   h4Mana.textContent = `Mana Cost: ${cards.mana}`
   btnOne.textContent = "Add new card"
   btnOne.className = 'btnOne'
+  
   //removeBtnOne.textContent = 'Remove card'
   //removeBtnOne.className = 'removeBtnOne'
   cardImage.src = cards.cardImage
@@ -26,8 +28,8 @@ function renderCardColumnOne(cards) {
     //h4Mana.remove()
     //cardImage.remove()
   //})
-
-      document.querySelector('.btnOne').addEventListener('click', (e) => {
+  
+     let formCreation = document.querySelector('.btnOne').addEventListener('click', (e) => {
       
       let form = document.createElement('FORM');
       form.setAttribute("id", "myForm");
@@ -58,7 +60,8 @@ function renderCardColumnOne(cards) {
       document.querySelector('#myForm').appendChild(inputFormFour)
     
     
-      let buttonSub = document.createElement('button')
+      let buttonSub = document.createElement('input')
+      buttonSub.setAttribute('type', 'submit')
       buttonSub.innerHTML = 'Submit'
       document.querySelector('#myForm').appendChild(buttonSub)
 
@@ -73,10 +76,16 @@ function renderCardColumnOne(cards) {
       }
       renderCardColumnOne(newCard);
  })
-      
+      ;
     })
+    
+  
 
-}
+  }
+
+
+
+
 
 
 
@@ -130,7 +139,8 @@ function renderCardColumnTwo(cards) {
       document.querySelector('#myFormMiddle').appendChild(inputFormFour)
     
     
-      let buttonSub = document.createElement('button')
+      let buttonSub = document.createElement('input')
+      buttonSub.setAttribute('type', 'submit')
       buttonSub.innerHTML = 'Submit'
       document.querySelector('#myFormMiddle').appendChild(buttonSub)
 
@@ -202,7 +212,8 @@ function renderCardColumnTwo(cards) {
       document.querySelector('#myFormRight').appendChild(inputFormFour)
     
     
-      let buttonSub = document.createElement('button')
+      let buttonSub = document.createElement('input')
+      buttonSub.setAttribute('type', 'submit')
       buttonSub.innerHTML = 'Submit'
       document.querySelector('#myFormRight').appendChild(buttonSub)
 
@@ -224,9 +235,11 @@ function renderCardColumnTwo(cards) {
 
 
 function renderColumns () {
+    
     magicCards.playingCards.forEach(renderCardColumnOne)
     cheeseMan.stats.forEach(renderCardColumnTwo)
     nicolBolas.stats.forEach(renderCardColumnThree)
+
 }
 
 
