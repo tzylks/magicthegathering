@@ -1,3 +1,6 @@
+
+
+
 document.querySelector('.btnOne').addEventListener('click', () => {
   let formCreation = document.querySelector('.btnOne').addEventListener('click', (e) => {
       
@@ -45,6 +48,7 @@ document.querySelector('.btnOne').addEventListener('click', () => {
     cardImage: e.target.cardImage.value
   }
   renderCardColumnOne(newCard);
+  
 })
   ;
 })})
@@ -164,8 +168,9 @@ function renderCardColumnOne(cards) {
   const h4Mana = document.createElement('h4')
   const cardImage = document.createElement('img')
   const btnOne = document.createElement('button')
-  //const removeBtnOne = document.createElement('button')
+  const removeBtnOne = document.createElement('button')
   const editOne = document.createElement('button')
+  
 
   h4Name.textContent = `Name:  ${cards.name}`
   h4Type.textContent = `Type: ${cards.type}`
@@ -174,29 +179,19 @@ function renderCardColumnOne(cards) {
   //btnOne.className = 'btnOne'
   //editOne.textContent = 'Edit card'
   //editOne.className = 'editOne'
-  //removeBtnOne.textContent = 'Remove card'
-  //removeBtnOne.className = 'removeBtnOne'
+  removeBtnOne.textContent = 'Remove all cards'
+  removeBtnOne.className = 'removeBtnOne'
   cardImage.src = cards.cardImage
   cardImage.className = 'yo'
+
   
-  li.append(h4Name, h4Type, h4Mana, cardImage)
+  
+  li.append(h4Name, h4Type, h4Mana, cardImage, removeBtnOne)
   document.querySelector('.left').appendChild(li)
 
-  //document.querySelector('.removeBtnOne').addEventListener('click', () => { 
-    //h4Name.remove()
-    //h4Type.remove()
-    //h4Mana.remove()
-    //cardImage.remove()
-  //})
-  
+  document.querySelector('.removeBtnOne').addEventListener('click', () => {li.remove()})
 
   }
-
-
-
-
-
-
 
 function renderCardColumnTwo(cards) {
     const li = document.createElement('li')
@@ -204,19 +199,20 @@ function renderCardColumnTwo(cards) {
     const h4Type = document.createElement('h4')
     const h4Mana = document.createElement('h4')
     const cardImage = document.createElement('img')
-    //const btnTwo = document.createElement('button')
+    const removeBtnTwo = document.createElement('button')
   
     h4Name.textContent = `Name:  ${cards.name}`
     h4Type.textContent = `Type: ${cards.type}`
     h4Mana.textContent = `Mana Cost: ${cards.mana}`
-    //btnTwo.textContent = 'Add new card'
-    //btnTwo.className = 'btnTwo'
+    removeBtnTwo.textContent = 'Add new card'
+    removeBtnTwo.className = 'removeBtnTwo'
     cardImage.src = cards.cardImage
     cardImage.className = 'yoOne'
   
-    li.append(h4Name, h4Type, h4Mana, cardImage)
+    li.append(h4Name, h4Type, h4Mana, cardImage, removeBtnTwo)
     document.querySelector('.middle').appendChild(li)
 
+    document.querySelector('.removeBtnTwo').addEventListener('click', ()=>{li.remove()})
   }
 
   function renderCardColumnThree(cards) {
@@ -225,25 +221,26 @@ function renderCardColumnTwo(cards) {
     const h4Type = document.createElement('h4')
     const h4Mana = document.createElement('h4')
     const cardImage = document.createElement('img')
-    //const btnThree = document.createElement('button')
+    const removeBtnThree = document.createElement('button')
   
     h4Name.textContent = `Name:  ${cards.name}`
     h4Type.textContent = `Type: ${cards.type}`
     h4Mana.textContent = `Mana Cost: ${cards.mana}`
-    //btnThree.className = 'btnThree'
-    //btnThree.textContent = 'Add new card'
+    removeBtnThree.className = 'removeBtnThree'
+    removeBtnThree.textContent = 'Remove all cards'
     cardImage.src = cards.cardImage
     cardImage.className = 'yoTwo'
     
   
-    li.append(h4Name, h4Type, h4Mana, cardImage)
+    li.append(h4Name, h4Type, h4Mana, cardImage, removeBtnThree)
     document.querySelector('.right').appendChild(li)
+
+    document.querySelector('.removeBtnThree').addEventListener('click', ()=>{li.remove()})
   
   }
 
 
 function renderColumns () {
-    
     magicCards.playingCards.forEach(renderCardColumnOne)
     cheeseMan.stats.forEach(renderCardColumnTwo)
     nicolBolas.stats.forEach(renderCardColumnThree)
