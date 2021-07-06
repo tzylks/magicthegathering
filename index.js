@@ -204,7 +204,7 @@ function renderCardColumnTwo(cards) {
     h4Name.textContent = `Name:  ${cards.name}`
     h4Type.textContent = `Type: ${cards.type}`
     h4Mana.textContent = `Mana Cost: ${cards.mana}`
-    removeBtnTwo.textContent = 'Add new card'
+    removeBtnTwo.textContent = 'Remove all cards'
     removeBtnTwo.className = 'removeBtnTwo'
     cardImage.src = cards.cardImage
     cardImage.className = 'yoOne'
