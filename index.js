@@ -2,8 +2,10 @@
 
 
 document.querySelector('.btnOne').addEventListener('click', () => {
-  let formCreation = document.querySelector('.btnOne').addEventListener('click', (e) => {
-      
+  
+  let disable = document.querySelector('.btnOne')
+  disable.setAttribute('disabled', 'disabled');
+
   let form = document.createElement('FORM');
   form.setAttribute("id", "myForm");
   document.querySelector('.left').prepend(form);
@@ -48,49 +50,53 @@ document.querySelector('.btnOne').addEventListener('click', () => {
     cardImage: e.target.cardImage.value
   }
   renderCardColumnOne(newCard);
+  document.querySelector('#myForm').remove();
+  disable.removeAttribute('disabled');
   
 })
   ;
-})})
+})
 
 document.querySelector('.btnTwo').addEventListener('click', () => {
-  let formCreation = document.querySelector('.btnTwo').addEventListener('click', (e) => {
-      
+  
+  let disable = document.querySelector('.btnTwo')
+  disable.setAttribute('disabled', 'disabled');
+  
   let form = document.createElement('FORM');
-  form.setAttribute("id", "myForm");
+  form.setAttribute("id", "myFormTwo");
   document.querySelector('.middle').prepend(form);
 
   let inputForm = document.createElement('input');
   inputForm.setAttribute('id', 'cardName')
   inputForm.setAttribute('type','text')
   inputForm.setAttribute('value', 'Card Name')
-  document.querySelector('#myForm').appendChild(inputForm)
+  document.querySelector('#myFormTwo').appendChild(inputForm)
 
   let inputFormTwo = document.createElement('input');
   inputFormTwo.setAttribute('id', 'cardType')
   inputFormTwo.setAttribute('type','text')
   inputFormTwo.setAttribute('value', 'Type')
-  document.querySelector('#myForm').appendChild(inputFormTwo)
+  document.querySelector('#myFormTwo').appendChild(inputFormTwo)
 
   let inputFormThree = document.createElement('input');
   inputFormThree.setAttribute('id', 'cardMana')
   inputFormThree.setAttribute('type','text')
   inputFormThree.setAttribute('value', 'Mana')
-  document.querySelector('#myForm').appendChild(inputFormThree)
+  document.querySelector('#myFormTwo').appendChild(inputFormThree)
 
   let inputFormFour = document.createElement('input');
   inputFormFour.setAttribute('id', 'cardImage')
   inputFormFour.setAttribute('type','text')
   inputFormFour.setAttribute('value', 'Image Link')
-  document.querySelector('#myForm').appendChild(inputFormFour)
+  document.querySelector('#myFormTwo').appendChild(inputFormFour)
 
 
   let buttonSub = document.createElement('input')
   buttonSub.setAttribute('type', 'submit')
   buttonSub.innerHTML = 'Submit'
-  document.querySelector('#myForm').appendChild(buttonSub)
+  document.querySelector('#myFormTwo').appendChild(buttonSub)
   
-  document.querySelector('#myForm').addEventListener('submit', (e) => {
+  document.querySelector('#myFormTwo').addEventListener('submit', (e) => {
   e.preventDefault();
   const newCard = {
     name: e.target.cardName.value,
@@ -99,50 +105,54 @@ document.querySelector('.btnTwo').addEventListener('click', () => {
     cardImage: e.target.cardImage.value
   }
   renderCardColumnTwo(newCard);
+  document.querySelector('#myFormTwo').remove();
+  disable.removeAttribute('disabled');
 })
 
   ;
-})});
+});
 
 document.querySelector('.btnThree').addEventListener('click', () => {
-  let formCreation = document.querySelector('.btnThree').addEventListener('click', (e) => {
-      
+  
+  let disable = document.querySelector('.btnThree')
+  disable.setAttribute('disabled', 'disabled');
+
   let form = document.createElement('FORM');
-  form.setAttribute("id", "myForm");
+  form.setAttribute("id", "myFormThree");
   document.querySelector('.right').prepend(form);
 
   let inputForm = document.createElement('input');
   inputForm.setAttribute('id', 'cardName')
   inputForm.setAttribute('type','text')
   inputForm.setAttribute('value', 'Card Name')
-  document.querySelector('#myForm').appendChild(inputForm)
+  document.querySelector('#myFormThree').appendChild(inputForm)
 
   let inputFormTwo = document.createElement('input');
   inputFormTwo.setAttribute('id', 'cardType')
   inputFormTwo.setAttribute('type','text')
   inputFormTwo.setAttribute('value', 'Type')
-  document.querySelector('#myForm').appendChild(inputFormTwo)
+  document.querySelector('#myFormThree').appendChild(inputFormTwo)
 
   let inputFormThree = document.createElement('input');
   inputFormThree.setAttribute('id', 'cardMana')
   inputFormThree.setAttribute('type','text')
   inputFormThree.setAttribute('value', 'Mana')
-  document.querySelector('#myForm').appendChild(inputFormThree)
+  document.querySelector('#myFormThree').appendChild(inputFormThree)
 
   let inputFormFour = document.createElement('input');
   inputFormFour.setAttribute('id', 'cardImage')
   inputFormFour.setAttribute('type','text')
   inputFormFour.setAttribute('value', 'Image Link')
-  document.querySelector('#myForm').appendChild(inputFormFour)
+  document.querySelector('#myFormThree').appendChild(inputFormFour)
 
 
   let buttonSub = document.createElement('input')
   buttonSub.setAttribute('type', 'submit')
   buttonSub.innerHTML = 'Submit'
-  document.querySelector('#myForm').appendChild(buttonSub)
+  document.querySelector('#myFormThree').appendChild(buttonSub)
 
 
-  document.querySelector('#myForm').addEventListener('submit', (e) => {
+  document.querySelector('#myFormThree').addEventListener('submit', (e) => {
   e.preventDefault();
   const newCard = {
     name: e.target.cardName.value,
@@ -151,9 +161,12 @@ document.querySelector('.btnThree').addEventListener('click', () => {
     cardImage: e.target.cardImage.value
   }
   renderCardColumnThree(newCard);
+  document.querySelector('#myFormThree').remove();
+  disable.removeAttribute('disabled')
 })
+  
   ;
-})})
+})
 
 
 
